@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FindYourMovie.Maui.Views.SearchPage"
+             xmlns:vm="clr-namespace:FindYourMovie.Maui.CommandClasses"
+             xmlns:model="clr-namespace:FindYourMovie.EntityLayer.EntityClasses;assembly=FindYourMovie.EntityLayer"
+             x:DataType="vm:SearchViewModelCommands"
+             Title="Find your movie">
+    <Grid Padding="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+        </Grid.RowDefinitions>
+        <CollectionView Grid.Row="0"
+                x:Name="collectionMovies"
+                SelectionMode="Single"
+                ItemsSource="{Binding MovieList}"
+                SelectedItem="{Binding MovieObject}"
+                SelectionChangedCommand="{Binding SelectMovieCommand}"
+                SelectionChangedCommandParameter="{Binding MovieObject}">
+            <CollectionView.ItemTemplate>
+                <DataTemplate x:DataType="model:Movie">
+                    <VerticalStackLayout Spacing="5" Margin="10">
+                        <Label
+                            Text="{Binding Name}"
+                            Margin="10, 0"
+                            FontAttributes="Bold" 
+                            FontSize="Medium"/>
+                        <Label
+                            Text="{Binding Genre, StringFormat='Жанр: {0}'}"
+                            Margin="10, 0"
+                            FontAttributes="Italic"/>
+                        <Label
+                            Text="{Binding ActorsNames, StringFormat='Актеры: {0}'}"
+                            Margin="10, 0"
+                            FontAttributes="Italic"/>
+                       
+                       
+                    </VerticalStackLayout>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+        <!--<SearchBar x:Name="searchBar"
+           Margin="15"
+           Grid.Row="1"
+           Placeholder="Введите имя фильма"
+           SearchCommand="{Binding SearchMovieCommand}"
+           SearchCommandParameter="{Binding Text, Source={x:Reference searchBar}}"/>-->
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
+
+            <Entry
+                Grid.Column="0"
+                Margin="2"
+                x:Name="searchEntry"
+                Text="{Binding SearchText}"
+                Placeholder="Введите название"
+                MaxLength="50"/>
+            <Button
+                Grid.Column="1"
+                Margin="2"
+                x:Name="searchButton"
+                Text="Найти"
+                Command="{Binding SearchMovieCommand}"/>
+        </Grid>
+        <Grid Grid.Row="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
+
+            <Picker Title="Выберите актера"
+                Grid.Column="0"
+                Margin="2"
+                ItemsSource="{Binding ActorList}"
+                ItemDisplayBinding="{Binding Name}"
+                SelectedItem="{Binding ActorObject}"/>
+            <Picker Title="Выберите жанр"
+                Grid.Column="1"
+                Margin="2"
+                ItemsSource="{Binding GenreList}"
+                SelectedItem="{Binding Genre}"/>
+        </Grid>
+            
+    </Grid>
+</ContentPage>

@@ -1,0 +1,68 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.12.35707.178
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FindYourMovie.Maui", "FindYourMovie.Maui\FindYourMovie.Maui.csproj", "{692980BC-3223-4708-9D41-9BF62AA77403}"
+	ProjectSection(ProjectDependencies) = postProject
+		{60E20DA0-1655-4BD5-92E3-2130E9E33018} = {60E20DA0-1655-4BD5-92E3-2130E9E33018}
+		{E25F4CC5-DA5D-4E93-83F8-CFA671042EA3} = {E25F4CC5-DA5D-4E93-83F8-CFA671042EA3}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Common.Library", "Common.Library\Common.Library.csproj", "{9FB4D948-753B-4510-9AA0-2B0732ADC07B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FindYourMovie.ViewModelLayer", "FindYourMovie.ViewModelLayer\FindYourMovie.ViewModelLayer.csproj", "{E25F4CC5-DA5D-4E93-83F8-CFA671042EA3}"
+	ProjectSection(ProjectDependencies) = postProject
+		{60E20DA0-1655-4BD5-92E3-2130E9E33018} = {60E20DA0-1655-4BD5-92E3-2130E9E33018}
+		{9FB4D948-753B-4510-9AA0-2B0732ADC07B} = {9FB4D948-753B-4510-9AA0-2B0732ADC07B}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FindYourMovie.EntityLayer", "FindYourMovie.EntityLayer\FindYourMovie.EntityLayer.csproj", "{60E20DA0-1655-4BD5-92E3-2130E9E33018}"
+	ProjectSection(ProjectDependencies) = postProject
+		{9FB4D948-753B-4510-9AA0-2B0732ADC07B} = {9FB4D948-753B-4510-9AA0-2B0732ADC07B}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FindYourMovie.DataLayer", "FindYourMovie.DataLayer\FindYourMovie.DataLayer.csproj", "{6A0534D2-8165-43F8-9723-BFED79D87AE0}"
+	ProjectSection(ProjectDependencies) = postProject
+		{60E20DA0-1655-4BD5-92E3-2130E9E33018} = {60E20DA0-1655-4BD5-92E3-2130E9E33018}
+		{9FB4D948-753B-4510-9AA0-2B0732ADC07B} = {9FB4D948-753B-4510-9AA0-2B0732ADC07B}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Common.DataBase", "Common.DataBase\Common.DataBase.csproj", "{A6F48545-352F-4FF3-AC9E-F545B6C46217}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{692980BC-3223-4708-9D41-9BF62AA77403}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{692980BC-3223-4708-9D41-9BF62AA77403}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{692980BC-3223-4708-9D41-9BF62AA77403}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{692980BC-3223-4708-9D41-9BF62AA77403}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{692980BC-3223-4708-9D41-9BF62AA77403}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9FB4D948-753B-4510-9AA0-2B0732ADC07B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9FB4D948-753B-4510-9AA0-2B0732ADC07B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9FB4D948-753B-4510-9AA0-2B0732ADC07B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9FB4D948-753B-4510-9AA0-2B0732ADC07B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E25F4CC5-DA5D-4E93-83F8-CFA671042EA3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E25F4CC5-DA5D-4E93-83F8-CFA671042EA3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E25F4CC5-DA5D-4E93-83F8-CFA671042EA3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E25F4CC5-DA5D-4E93-83F8-CFA671042EA3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{60E20DA0-1655-4BD5-92E3-2130E9E33018}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{60E20DA0-1655-4BD5-92E3-2130E9E33018}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{60E20DA0-1655-4BD5-92E3-2130E9E33018}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{60E20DA0-1655-4BD5-92E3-2130E9E33018}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6A0534D2-8165-43F8-9723-BFED79D87AE0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6A0534D2-8165-43F8-9723-BFED79D87AE0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6A0534D2-8165-43F8-9723-BFED79D87AE0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6A0534D2-8165-43F8-9723-BFED79D87AE0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A6F48545-352F-4FF3-AC9E-F545B6C46217}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A6F48545-352F-4FF3-AC9E-F545B6C46217}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A6F48545-352F-4FF3-AC9E-F545B6C46217}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A6F48545-352F-4FF3-AC9E-F545B6C46217}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
