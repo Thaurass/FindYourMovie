@@ -14,14 +14,12 @@ public class SearchViewModelCommands : SearchViewModel
 
     public SearchViewModelCommands(IRepository<Movie> movierepo, IRepository<Actor> actorrepo) : base(movierepo, actorrepo)
     {
-        _MovieRepository = movierepo;
         _ActorRepository = actorrepo;
         ActorList = new ObservableCollection<Actor>(_ActorRepository.Get(MauiProgram.databasePath));
     }
     #endregion
 
     #region Private Variables
-    private IRepository<Movie>? _MovieRepository;
     private IRepository<Actor>? _ActorRepository;
     #endregion
 

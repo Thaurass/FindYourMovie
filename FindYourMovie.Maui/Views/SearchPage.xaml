@@ -35,39 +35,13 @@
                             Text="{Binding ActorsNames, StringFormat='Актеры: {0}'}"
                             Margin="10, 0"
                             FontAttributes="Italic"/>
-                       
-                       
+
+
                     </VerticalStackLayout>
                 </DataTemplate>
             </CollectionView.ItemTemplate>
         </CollectionView>
-        <!--<SearchBar x:Name="searchBar"
-           Margin="15"
-           Grid.Row="1"
-           Placeholder="Введите имя фильма"
-           SearchCommand="{Binding SearchMovieCommand}"
-           SearchCommandParameter="{Binding Text, Source={x:Reference searchBar}}"/>-->
         <Grid Grid.Row="1">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="Auto" />
-                <ColumnDefinition Width="Auto" />
-            </Grid.ColumnDefinitions>
-
-            <Entry
-                Grid.Column="0"
-                Margin="2"
-                x:Name="searchEntry"
-                Text="{Binding SearchText}"
-                Placeholder="Введите название"
-                MaxLength="50"/>
-            <Button
-                Grid.Column="1"
-                Margin="2"
-                x:Name="searchButton"
-                Text="Найти"
-                Command="{Binding SearchMovieCommand}"/>
-        </Grid>
-        <Grid Grid.Row="2">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto" />
                 <ColumnDefinition Width="Auto" />
@@ -85,6 +59,27 @@
                 ItemsSource="{Binding GenreList}"
                 SelectedItem="{Binding Genre}"/>
         </Grid>
+        <Grid Grid.Row="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
+
+            <Entry
+                Grid.Column="0"
+                Margin="2"
+                x:Name="searchEntry"
+                Text="{Binding SearchText}"
+                Placeholder="Введите название"
+                MaxLength="50"/>
+            <Button
+                Grid.Column="1"
+                Margin="2"
+                x:Name="searchButton"
+                Text="Найти"
+                Command="{Binding SearchMovieCommand}"/>
+        </Grid>
+        
             
     </Grid>
 </ContentPage>

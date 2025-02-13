@@ -1,5 +1,4 @@
 ﻿using Microsoft.Data.Sqlite;
-using System;
 using System.Collections.ObjectModel;
 
 namespace Common.DataBase;
@@ -13,7 +12,6 @@ public class DatabaseConnection
         DatabasePath = databasePath;
     }
 
-    // Метод для выполнения SQL-запросов и возврата ObservableCollection<T>
     protected ObservableCollection<T> ExecuteQuery<T>(
         string query,
         Func<SqliteDataReader, ObservableCollection<T>> mapFunction,
@@ -27,7 +25,6 @@ public class DatabaseConnection
 
                 using (var command = new SqliteCommand(query, connection))
                 {
-                    // Добавляем параметры в команду
                     foreach (var (parameterName, value) in parameters)
                     {
                         if (!string.IsNullOrEmpty(value))
@@ -38,7 +35,7 @@ public class DatabaseConnection
 
                     using (var reader = command.ExecuteReader())
                     {
-                        return mapFunction(reader); // Выполняем делегат
+                        return mapFunction(reader); 
                     }
                 }
             }

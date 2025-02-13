@@ -11,7 +11,6 @@ public class CoreDB
             {
                 connection.Open();
 
-                // Создание таблиц
                 string createMoviesTableCommand = @"
                     CREATE TABLE IF NOT EXISTS Movies (
                         Id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -35,7 +34,6 @@ public class CoreDB
                     );";
                 ExecuteCommand(connection, createMovieActorTableCommand);
 
-                // Создание индекса
                 string createIndexCommand = @"
                     CREATE INDEX IF NOT EXISTS idx_movie_actor ON MovieActor (MovieId, ActorId);";
                 ExecuteCommand(connection, createIndexCommand);
@@ -63,7 +61,6 @@ public class CoreDB
                 connection.Open();
                 ClearTables(connection);
 
-                // Массивы с данными
                 string[] movieNames = { "Интерстеллар", "Матрица", "Властелин колец", "Аватар", "Звездные войны",
                                     "Гравитация", "Дюна", "Титаник", "Шерлок Холмс", "Пираты Карибского моря" };
                 string[] movieGenres = { "Научная фантастика", "Научная фантастика", "Фэнтези", "Фантастика", "Фантастика",
@@ -73,7 +70,6 @@ public class CoreDB
 
                 Random random = new Random();
 
-                // Добавление фильмов
                 foreach (var (name, genre) in movieNames.Zip(movieGenres, (n, g) => (n, g)))
                 {
                     string insertMovieCommand = "INSERT OR IGNORE INTO Movies (Name, Genre) VALUES (@name, @genre);";
@@ -84,7 +80,6 @@ public class CoreDB
                     });
                 }
 
-                // Добавление актеров
                 foreach (var name in actorNames)
                 {
                     string insertActorCommand = "INSERT OR IGNORE INTO Actors (Name) VALUES (@name);";
@@ -94,7 +89,6 @@ public class CoreDB
                     });
                 }
 
-                // Создание связей
                 for (int i = 1; i <= movieNames.Length; i++)
                 {
                     int actorsCount = random.Next(2, 5);

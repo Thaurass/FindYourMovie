@@ -99,7 +99,7 @@ public class SearchViewModel : CommonBase
     #region Search Method
     public void SearchMovie(string databasePath)
     {
-        MovieList = new ObservableCollection<Movie>(FillActorsNames(_MovieRepository.Search(databasePath, SearchText, Genre, ActorObject.Name)));
+        MovieList = FillActorsNames(_MovieRepository.Search(databasePath, SearchText, Genre, ActorObject.Name));
 
     }
     #endregion
@@ -109,7 +109,6 @@ public class SearchViewModel : CommonBase
     {
         if (_MovieRepository != null)
         {
-            // Get a Product from a data store
             MovieObject = _MovieRepository.Get(databasePath, id);
         }
 
@@ -126,24 +125,19 @@ public class SearchViewModel : CommonBase
             return new ObservableCollection<Movie>();
         }
 
-        // Создаем новый список для хранения обновленных фильмов
         var updatedMovies = new ObservableCollection<Movie>();
 
         foreach (var movie in movies)
         {
-            // Создаем копию текущего фильма
             var updatedMovie = new Movie(movie.MovieId, movie.Name, movie.Genre)
             {
-                Actors = movie.Actors // Копируем коллекцию актеров
+                Actors = movie.Actors
             };
-
-            // Если есть актеры, формируем строку с их именами
             if (updatedMovie.Actors != null && updatedMovie.Actors.Count > 0)
             {
                 updatedMovie.ActorsNames = string.Join(", ", updatedMovie.Actors.Select(actor => actor.Name));
             }
 
-            // Добавляем обновленный фильм в результат
             updatedMovies.Add(updatedMovie);
         }
 
