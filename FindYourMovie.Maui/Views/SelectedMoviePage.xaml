@@ -4,7 +4,7 @@
              xmlns:vm="clr-namespace:FindYourMovie.Maui.CommandClasses"
              x:Class="FindYourMovie.Maui.Views.SelectedMoviePage"
              x:DataType="vm:SearchViewModelCommands"
-             Title="SelectedMoviePage">
+             Title="Карточка фильма">
     <VerticalStackLayout>
         <Label
             Text="{Binding MovieObject.Name}"

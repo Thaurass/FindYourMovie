@@ -32,8 +32,8 @@ public class SearchViewModelCommands : SearchViewModel
     public override void Init()
     {
         base.Init();
-        Routing.RegisterRoute("SelectedMoviePage", typeof(Views.SelectedMoviePage));
-        SelectMovieCommand = new Command(async () => await SelectMovie());
+        
+        SelectMovieCommand = new Command(() => SelectMovie());
         SearchMovieCommand = new Command(() => MovieSearch());
     }
     #endregion
@@ -47,11 +47,11 @@ public class SearchViewModelCommands : SearchViewModel
     #endregion
 
     #region SelectMovieAsync Method
-    protected async Task SelectMovie()
+    protected void SelectMovie()
     {
         if (MovieObject != null)
         {
-            await Shell.Current.GoToAsync($"{"SelectedMoviePage"}?movie={MovieObject.MovieId}");
+            Shell.Current.GoToAsync("SelectedMoviePage");
         }
         
     }

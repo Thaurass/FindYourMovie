@@ -9,6 +9,7 @@ namespace FindYourMovie.Maui
         {
             InitializeComponent();
             CoreDB.CreateAndFillDB(MauiProgram.databasePath);
+            Routing.RegisterRoute("SelectedMoviePage", typeof(Views.SelectedMoviePage));
         }
 
         protected override Window CreateWindow(IActivationState? activationState)
