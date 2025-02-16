@@ -10,18 +10,40 @@ namespace FindYourMovie.DataLayer.DataClasses
         public ObservableCollection<Movie> Search(string databasePath, string name = null, string genre = null, string actorName = null)
         {
             MovieService service = new(databasePath);
-            return service.SearchMovies(name, genre, actorName);
+            ObservableCollection<Movie> FinedMovies = service.SearchMovies(name, genre, actorName);
+            return FillActorsNames(FinedMovies);
 
         }
         public ObservableCollection<Movie> Get(string databasePath)
         { return []; }
 
-        public Movie? Get(string databasePath, int id)
+        #region FillActorsNames Method
+        public ObservableCollection<Movie> FillActorsNames(ObservableCollection<Movie> movies)
         {
-            return Get(databasePath).Where(row => row.MovieId == id).FirstOrDefault();
-        }
+            if (movies == null || movies.Count == 0)
+            {
+                return new ObservableCollection<Movie>();
+            }
 
-        
+            var updatedMovies = new ObservableCollection<Movie>();
+
+            foreach (var movie in movies)
+            {
+                var updatedMovie = new Movie(movie.MovieId, movie.Name, movie.Genre)
+                {
+                    Actors = movie.Actors
+                };
+                if (updatedMovie.Actors != null && updatedMovie.Actors.Count > 0)
+                {
+                    updatedMovie.ActorsNames = string.Join(", ", updatedMovie.Actors.Select(actor => actor.Name));
+                }
+
+                updatedMovies.Add(updatedMovie);
+            }
+
+            return updatedMovies;
+        }
+        #endregion
 
     }
 }

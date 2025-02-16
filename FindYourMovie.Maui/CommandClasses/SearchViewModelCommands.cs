@@ -16,6 +16,7 @@ public class SearchViewModelCommands : SearchViewModel
     {
         _ActorRepository = actorrepo;
         ActorList = new ObservableCollection<Actor>(_ActorRepository.Get(MauiProgram.databasePath));
+        SearchMovie(MauiProgram.databasePath);
     }
     #endregion
 
@@ -26,6 +27,7 @@ public class SearchViewModelCommands : SearchViewModel
     #region Commands
     public ICommand SelectMovieCommand { get; private set; }
     public ICommand SearchMovieCommand { get; private set; }
+    public ICommand ClearFieldsCommand { get; private set; }
     #endregion
 
     #region Init Method
@@ -35,6 +37,7 @@ public class SearchViewModelCommands : SearchViewModel
         
         SelectMovieCommand = new Command(() => SelectMovie());
         SearchMovieCommand = new Command(() => MovieSearch());
+        ClearFieldsCommand = new Command(() => ClearButton());
     }
     #endregion
 
@@ -54,6 +57,14 @@ public class SearchViewModelCommands : SearchViewModel
             Shell.Current.GoToAsync("SelectedMoviePage");
         }
         
+    }
+    #endregion
+
+    #region ClearButton Method
+    protected void ClearButton()
+    {
+        ClearFields();
+        SearchMovie(MauiProgram.databasePath);
     }
     #endregion
 

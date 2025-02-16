@@ -99,49 +99,28 @@ public class SearchViewModel : CommonBase
     #region Search Method
     public void SearchMovie(string databasePath)
     {
-        MovieList = FillActorsNames(_MovieRepository.Search(databasePath, SearchText, Genre, ActorObject.Name));
+        if (ActorObject != null)
+        {
+            MovieList = _MovieRepository.Search(databasePath, SearchText, Genre, ActorObject.Name);
+        }
+        else
+        {
+            MovieList = _MovieRepository.Search(databasePath, SearchText, Genre, String.Empty);
+        }
+        
 
     }
     #endregion
 
-    #region Get(id) Method
-    public Movie? Get(string databasePath, int id)
+    #region ClearFields Method
+    public void ClearFields()
     {
-        if (_MovieRepository != null)
-        {
-            MovieObject = _MovieRepository.Get(databasePath, id);
-        }
+        ActorObject = new(-1, String.Empty);
+        Genre = string.Empty;
+        SearchText = string.Empty;
 
-
-        return MovieObject;
     }
     #endregion
 
-    #region FillActorsNames Method
-    public ObservableCollection<Movie> FillActorsNames(ObservableCollection<Movie> movies)
-    {
-        if (movies == null || movies.Count == 0)
-        {
-            return new ObservableCollection<Movie>();
-        }
-
-        var updatedMovies = new ObservableCollection<Movie>();
-
-        foreach (var movie in movies)
-        {
-            var updatedMovie = new Movie(movie.MovieId, movie.Name, movie.Genre)
-            {
-                Actors = movie.Actors
-            };
-            if (updatedMovie.Actors != null && updatedMovie.Actors.Count > 0)
-            {
-                updatedMovie.ActorsNames = string.Join(", ", updatedMovie.Actors.Select(actor => actor.Name));
-            }
-
-            updatedMovies.Add(updatedMovie);
-        }
-
-        return updatedMovies;
-    }
-    #endregion
+    
 }

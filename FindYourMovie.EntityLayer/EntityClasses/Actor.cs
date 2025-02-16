@@ -7,6 +7,7 @@ namespace FindYourMovie.EntityLayer.EntityClasses
         #region Constructor
         public Actor()
         {
+
         }
         public Actor(int id, string name)
         {

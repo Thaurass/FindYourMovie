@@ -30,6 +30,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FindYourMovie.DataLayer", "
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Common.DataBase", "Common.DataBase\Common.DataBase.csproj", "{A6F48545-352F-4FF3-AC9E-F545B6C46217}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FindYourMovie.Tests", "FindYourMovie.Tests\FindYourMovie.Tests.csproj", "{D52CD7DD-D94A-4A4C-A6A4-E3CEC0626041}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -61,6 +63,10 @@ Global
 		{A6F48545-352F-4FF3-AC9E-F545B6C46217}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A6F48545-352F-4FF3-AC9E-F545B6C46217}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A6F48545-352F-4FF3-AC9E-F545B6C46217}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D52CD7DD-D94A-4A4C-A6A4-E3CEC0626041}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D52CD7DD-D94A-4A4C-A6A4-E3CEC0626041}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D52CD7DD-D94A-4A4C-A6A4-E3CEC0626041}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D52CD7DD-D94A-4A4C-A6A4-E3CEC0626041}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

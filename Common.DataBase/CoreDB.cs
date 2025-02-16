@@ -38,7 +38,6 @@ public class CoreDB
                     CREATE INDEX IF NOT EXISTS idx_movie_actor ON MovieActor (MovieId, ActorId);";
                 ExecuteCommand(connection, createIndexCommand);
 
-                Console.WriteLine("База данных успешно создана или загружена.");
                 PopulateDatabase(databasePath);
             }
         }
@@ -52,7 +51,7 @@ public class CoreDB
         }
     }
 
-    public static void PopulateDatabase(string databasePath)
+    private static void PopulateDatabase(string databasePath)
     {
         try
         {
@@ -112,7 +111,6 @@ public class CoreDB
                     }
                 }
 
-                Console.WriteLine("База данных успешно заполнена.");
             }
         }
         catch (SqliteException ex)
@@ -135,7 +133,6 @@ public class CoreDB
         }
 
         ExecuteCommand(connection, "VACUUM;");
-        Console.WriteLine("Таблицы успешно очищены.");
     }
 
     private static bool CheckIfLinkExists(SqliteConnection connection, int movieId, int actorId)

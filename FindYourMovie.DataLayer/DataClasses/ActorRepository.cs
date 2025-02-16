@@ -15,9 +15,5 @@ namespace FindYourMovie.DataLayer.DataClasses
             ActorService service = new(databasePath);
             return service.GetAllActors();
         }
-        public Actor? Get(string databasePath, int id)
-        {
-            return Get(databasePath).Where(row => row.ActorId == id).FirstOrDefault();
-        }
     }
 }
